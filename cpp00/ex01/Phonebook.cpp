@@ -158,13 +158,15 @@ void Phonebook::search(void)
         std::cout << "Choose an index for more info: ";
         if (std::getline(std::cin, str) && str != "")
         {
-            int chosenIndex = std::stoi(str);
-            if (chosenIndex >= 1 && chosenIndex <= 8 && _contacts[chosenIndex - 1].get_first_name().size())
+            std::stringstream ss(str);
+            int chosenIndex;
+            if (ss >> chosenIndex && chosenIndex >= 1 && chosenIndex <= 8 && _contacts[chosenIndex - 1].get_first_name().size())
             {
                 this->infos(_contacts[chosenIndex - 1]);
                 break;
             }
         }
+
         if (str != "")
             std::cout << "Invalid index!" << std::endl;
     }

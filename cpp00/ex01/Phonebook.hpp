@@ -5,6 +5,7 @@
 #include "Helpers.hpp"
 #include <iomanip>
 #include <string>
+#include <sstream>
 
 class	Phonebook
 {
