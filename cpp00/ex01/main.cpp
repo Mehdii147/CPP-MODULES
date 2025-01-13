@@ -9,15 +9,15 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	std::string	str;
-	Phonebook 	pb1;
+	Phonebook 	pb;
 	while (str != "EXIT")
 	{
 		std::cout << "Enter a command > ";
 		std::getline(std::cin, str);
 		if (str == "ADD")
-			pb1.add();
+			pb.add();
 		else if (str == "SEARCH")
-			pb1.search();
+			pb.search();
 		if (std::cin.eof())
 		{
 			std::cout << std::endl;

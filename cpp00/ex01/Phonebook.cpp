@@ -111,7 +111,7 @@ void Phonebook::add(void)
 
 void	Phonebook::infos(Contact contact)
 {
-	std::cout << std::endl << "Contact infos :";
+	std::cout << std::endl << "Contact infos :" << std::endl;
 	std::cout << std::endl << "First Name: " << contact.get_first_name() << std::endl;
 	std::cout << "Last Name: " << contact.get_last_name() << std::endl;
 	std::cout << "Nickname: " << contact.get_nickname() << std::endl;
