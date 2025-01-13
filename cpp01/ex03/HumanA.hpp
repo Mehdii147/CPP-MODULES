@@ -17,5 +17,4 @@ class HumanA{
         void attack();
 };
 
-
 #endif

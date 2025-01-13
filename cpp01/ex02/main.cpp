@@ -12,7 +12,7 @@ int main()
     std::cout << "string's REF   : " << &stringREF << std::endl;
 
 
-    std::cout << "string's      value: " << string << std::endl;
+    std::cout << "string's ...  value: " << string << std::endl;
     std::cout << "string's PTR  value: " << *stringPTR << std::endl;
     std::cout << "string's REF  value: " << stringREF << std::endl;
 }
