@@ -1,20 +1,20 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(): _name("default"), _hitpoints(10), _energyPoints(10), _attackDamage(0){
-    std::cout << "defualt constructor called" << std::endl;
+    // std::cout << "defualt constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitpoints(10), _energyPoints(10), _attackDamage(0){
-    std::cout << "constructor called" << std::endl;
+    // std::cout << "constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy){
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy){
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if(this != &copy)
 	{
 		this->_name = copy._name;
@@ -44,7 +44,7 @@ void ClapTrap::takeDamage(unsigned int amount){
         this->_hitpoints -= amount;
     }
     else
-        std::cout << "ClapTrap " << this->_name << " is dead!" << std::endl;
+         std::cout << "ClapTrap " << this->_name << " is dead!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
@@ -57,5 +57,5 @@ void ClapTrap::beRepaired(unsigned int amount){
 }
 
 ClapTrap::~ClapTrap(){
-     std::cout <<"ClapTrap Destructor called" << std::endl;
+    //  std::cout <<"ClapTrap Destructor called" << std::endl;
 }
