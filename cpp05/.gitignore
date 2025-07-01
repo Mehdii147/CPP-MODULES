@@ -1,0 +1,15 @@
+# VS Code settings
+.vscode/
+
+# Compiled binaries
+*.o
+*.out
+
+# Build artifacts
+*.a
+*.so
+*.dylib
+
+# System files
+.DS_Store
+
