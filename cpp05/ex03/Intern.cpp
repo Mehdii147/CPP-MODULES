@@ -18,9 +18,10 @@ Intern &Intern::operator=(const Intern &other) {
 
 Intern::~Intern() {
 }
-
+// IF/ELSE <- LAAAAAAAAAAA AW9 
+// USE SWITCH CASE
 AForm *Intern::makeForm(const std::string &formName, const std::string &target) {
-    AForm *form = nullptr;
+    AForm *form;
 
     if (formName == "robotomy request") {
         form = new RobotomyRequestForm(target);
@@ -30,7 +31,7 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &target) 
         form = new ShrubberyCreationForm(target);
     } else {
         std::cerr << "Error: Form type '" << formName << "' is not recognized." << std::endl;
-        return nullptr;
+        return NULL;
     }
 
     std::cout << "Intern creates " << form->getName() << "." << std::endl;

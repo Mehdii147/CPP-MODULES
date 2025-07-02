@@ -24,6 +24,8 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+    (void)executor; // To avoid unused parameter warning
+    // srand(time(NULL)); katb9a tbaza 3la real time 
     int randomValue = rand() % 2;
     if (randomValue == 1)
         std::cout << "Bzzzzzzzzzz! " << this->target << " has been robotomized successfully!" << std::endl;
