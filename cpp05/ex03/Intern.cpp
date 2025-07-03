@@ -18,22 +18,39 @@ Intern &Intern::operator=(const Intern &other) {
 
 Intern::~Intern() {
 }
-// IF/ELSE <- LAAAAAAAAAAA AW9 
-// USE SWITCH CASE
-AForm *Intern::makeForm(const std::string &formName, const std::string &target) {
-    AForm *form;
 
-    if (formName == "robotomy request") {
-        form = new RobotomyRequestForm(target);
-    } else if (formName == "presidential pardon") {
-        form = new PresidentialPardonForm(target);
-    } else if (formName == "shrubbery creation") {
-        form = new ShrubberyCreationForm(target);
-    } else {
-        std::cerr << "Error: Form type '" << formName << "' is not recognized." << std::endl;
-        return NULL;
+AForm* Intern::createRobotomy(const std::string& target) {
+    return new RobotomyRequestForm(target);
+}
+
+AForm* Intern::createPardon(const std::string& target) {
+    return new PresidentialPardonForm(target);
+}
+
+AForm* Intern::createShrubbery(const std::string& target) {
+    return new ShrubberyCreationForm(target);
+}
+
+AForm* Intern::makeForm(const std::string& formName, const std::string& target) {
+    const std::string formNames[] = {
+        "robotomy request",
+        "presidential pardon",
+        "shrubbery creation"
+    };
+
+    AForm* (*formCreators[])(const std::string&) = {
+        &Intern::createRobotomy,
+        &Intern::createPardon,
+        &Intern::createShrubbery
+    };
+
+    for (int i = 0; i < 3; ++i) {
+        if (formName == formNames[i]) {
+            std::cout << "Intern creates " << formName << std::endl;
+            return formCreators[i](target);
+        }
     }
 
-    std::cout << "Intern creates " << form->getName() << "." << std::endl;
-    return form;
+    std::cout << "Intern could not find form: " << formName << std::endl;
+    return NULL;
 }

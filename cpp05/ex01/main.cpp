@@ -6,12 +6,11 @@
 /*   By: ehafiane <ehafiane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:46:17 by ehafiane          #+#    #+#             */
-/*   Updated: 2025/07/01 11:15:19 by ehafiane         ###   ########.fr       */
+/*   Updated: 2025/07/03 14:11:02 by ehafiane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 int main(void)
 {

@@ -14,6 +14,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other) {
     if (this != &other) {
+        AForm::operator=(other);
         this->target = other.target;
     }
     return *this;
@@ -23,14 +24,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-    if (!this->getIsSigned()) {
+    if (!this->getIsSigned())
         throw AForm::GradeTooLowException();
-    }
-    if (executor.getGrade() > this->getExecuteGrade()) {
+    if (executor.getGrade() > this->getExecuteGrade())
         throw AForm::GradeTooLowException();
-    }
-
-    std::ofstream file(target + "_shrubbery");
+    std::ofstream file((target + "_shrubbery").c_str());
     if (!file.is_open()) {
         throw std::runtime_error("Failed to open file for writing.");
     }

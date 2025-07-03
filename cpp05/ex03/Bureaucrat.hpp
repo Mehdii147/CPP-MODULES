@@ -6,7 +6,7 @@
 /*   By: ehafiane <ehafiane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 13:01:27 by ehafiane          #+#    #+#             */
-/*   Updated: 2025/07/02 16:08:11 by ehafiane         ###   ########.fr       */
+/*   Updated: 2025/07/03 14:06:05 by ehafiane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <fstream>
 #include "AForm.hpp"
 
-class AForm; // Forward declaration to avoid circular dependency
+class AForm; 
 
 class Bureaucrat {
 

@@ -6,7 +6,7 @@
 /*   By: ehafiane <ehafiane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 13:09:12 by ehafiane          #+#    #+#             */
-/*   Updated: 2025/06/25 13:14:51 by ehafiane         ###   ########.fr       */
+/*   Updated: 2025/07/03 13:25:25 by ehafiane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Form::Form(void) : name("Default"), isSigned(false), signGrade(150), executeGrad
 Form::Form(const std::string name, int signGrade, int executeGrade) : name(name), isSigned(false), signGrade(signGrade), executeGrade(executeGrade)
 {
 
-}
+}//// check sign grade and execute drade
 
 Form::Form(const Form &other) : name(other.name), isSigned(other.isSigned), signGrade(other.signGrade), executeGrade(other.executeGrade)
 {

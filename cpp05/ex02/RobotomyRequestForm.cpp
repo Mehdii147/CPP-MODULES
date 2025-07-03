@@ -1,5 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 
+
 RobotomyRequestForm::RobotomyRequestForm() 
     : AForm("Robotomy Request Form", 72, 45), target("default_target") {
 }
@@ -15,6 +16,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other) {
     if (this != &other) {
+        AForm::operator=(other);
         this->target = other.target;
     }
     return *this;
@@ -24,15 +26,14 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
-    (void)executor; // To avoid unused parameter warning
-    // srand(time(NULL)); katb9a tbaza 3la real time 
+    if (!this->getIsSigned())
+        throw AForm::GradeTooLowException();
+    if (executor.getGrade() > this->getExecuteGrade())
+        throw AForm::GradeTooLowException();
+    srand(time(NULL)); 
     int randomValue = rand() % 2;
     if (randomValue == 1)
         std::cout << "Bzzzzzzzzzz! " << this->target << " has been robotomized successfully!" << std::endl;
     else
-        throw RobotomyFailureException();
-}
-
-const char *RobotomyRequestForm::RobotomyFailureException::what() const throw() {
-    return "Robotomy failed!";
+        std::cout << "Robotomy failed!" << std::endl;
 }
