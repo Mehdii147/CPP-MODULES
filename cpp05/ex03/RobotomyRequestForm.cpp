@@ -24,15 +24,15 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
-    (void)executor; // To avoid unused parameter warning
-    // srand(time(NULL)); katb9a tbaza 3la real time 
+    if (!this->getIsSigned())
+        throw AForm::GradeTooLowException();
+    if (executor.getGrade() > this->getExecuteGrade())
+        throw AForm::GradeTooLowException();
+    srand(time(NULL)); 
     int randomValue = rand() % 2;
     if (randomValue == 1)
         std::cout << "Bzzzzzzzzzz! " << this->target << " has been robotomized successfully!" << std::endl;
     else
-        throw RobotomyFailureException();
+        std::cout << "Robotomy failed!" << std::endl;
 }
 
-const char *RobotomyRequestForm::RobotomyFailureException::what() const throw() {
-    return "Robotomy failed!";
-}

@@ -6,7 +6,7 @@
 /*   By: ehafiane <ehafiane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:16:40 by ehafiane          #+#    #+#             */
-/*   Updated: 2025/07/01 15:43:59 by ehafiane         ###   ########.fr       */
+/*   Updated: 2025/07/03 13:22:47 by ehafiane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ int Bureaucrat::getGrade() const {
 
 void Bureaucrat::promote() {
     if (this->grade <= 1)
-    throw GradeTooHighException();
+        throw GradeTooHighException();
     this->grade--;
     std::cout << this->getName() << " promoted to grade " << this->getGrade() << std::endl;
 }
 
 void Bureaucrat::demote() {
     if (this->grade >= 150)
-    throw GradeTooLowException();
+        throw GradeTooLowException();
     this->grade++;
     std::cout << this->getName() << " demoted to grade " << this->getGrade() << std::endl;
 }
@@ -77,4 +77,3 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat *bureaucrat) {
     os << bureaucrat->getName() << ", bureaucrat grade " << bureaucrat->getGrade();
     return os;
 }
-

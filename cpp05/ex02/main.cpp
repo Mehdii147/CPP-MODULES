@@ -1,4 +1,3 @@
-
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -7,7 +6,6 @@
 
 int main(void)
 {
-	srand(time(NULL));
 
 	try {
 		

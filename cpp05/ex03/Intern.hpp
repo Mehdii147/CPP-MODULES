@@ -14,6 +14,10 @@ class Intern {
         Intern(const Intern &other);
         ~Intern();
         Intern &operator=(const Intern &other);
+        
+        static AForm *createRobotomy(const std::string &target);
+        static AForm *createPardon(const std::string &target);
+        static AForm *createShrubbery(const std::string &target);
 
         AForm *makeForm(const std::string &formName, const std::string &target);
 };

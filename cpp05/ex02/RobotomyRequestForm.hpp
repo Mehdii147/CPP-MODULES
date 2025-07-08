@@ -2,6 +2,7 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
+#include <cstdlib>
 
 class RobotomyRequestForm : public AForm {
     private:
@@ -16,10 +17,6 @@ class RobotomyRequestForm : public AForm {
 
         void execute(Bureaucrat const & executor) const;
 
-        class RobotomyFailureException : public std::exception {
-            public:
-                virtual const char* what() const throw() ;
-        };
 };
 
 #endif

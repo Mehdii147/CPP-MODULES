@@ -6,7 +6,7 @@
 /*   By: ehafiane <ehafiane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 13:06:04 by ehafiane          #+#    #+#             */
-/*   Updated: 2025/06/28 14:45:45 by ehafiane         ###   ########.fr       */
+/*   Updated: 2025/07/03 14:06:26 by ehafiane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string>
 #include "Bureaucrat.hpp"
 
-class Bureaucrat; // Forward declaration to avoid circular dependency
+class Bureaucrat; 
 
 class Form {
     
