@@ -33,7 +33,6 @@ Base* generate(void)
 
 void identify(Base* p)
 {
-	// Try to cast to each type using dynamic_cast
 	if (dynamic_cast<A*>(p))
 		std::cout << "A" << std::endl;
 	else if (dynamic_cast<B*>(p))

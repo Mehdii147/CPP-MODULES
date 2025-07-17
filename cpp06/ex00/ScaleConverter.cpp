@@ -1,7 +1,23 @@
 #include "ScaleConverter.hpp"
 #include <iomanip>
+#include <cstdlib>
 
-ScalarConverter::ScalarConverter() {}
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other) {
+    (void)other; 
+    return *this; 
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter& other) {
+    (void)other; 
+}
+
+
+ScalarConverter::ScalarConverter() {
+
+}
+
+ScalarConverter::~ScalarConverter() {
+}
 
 static bool isChar(const std::string& input) {
     return input.length() == 3 && input[0] == '\'' && input[2] == '\'';
@@ -61,7 +77,7 @@ static bool isDouble(const std::string& input) {
     if (input[0] == '+' || input[0] == '-') 
         start = 1;
     if (start == input.length())    
-    return false;
+        return false;
     
     for (size_t i = start; i < input.length(); i++) {
         if (input[i] == '.') {
@@ -107,11 +123,15 @@ static void printFloat(double value) {
             std::cout << "+inff" << std::endl;
         else 
             std::cout << "-inff" << std::endl;
-    } else if (value < std::numeric_limits<float>::min() || value > std::numeric_limits<float>::max()) {
+    } else if (value < -std::numeric_limits<float>::max() || value > std::numeric_limits<float>::max()) {
         std::cout << "impossible" << std::endl;
     } else {
         float f = static_cast<float>(value);
-        std::cout << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+        if (std::isinf(f) && !std::isinf(value)) {
+            std::cout << "impossible" << std::endl;
+        } else {
+            std::cout << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+        }
     }
 }
 
@@ -122,8 +142,6 @@ static void printDouble(double value) {
     } else if (std::isinf(value)) {
         if (value > 0) std::cout << "+inf" << std::endl;
         else std::cout << "-inf" << std::endl;
-    } else if (value < std::numeric_limits<double>::min() || value > std::numeric_limits<double>::max()) {
-        std::cout << "impossible" << std::endl;
     } else {
         std::cout << std::fixed << std::setprecision(1) << value << std::endl;
     }
@@ -154,16 +172,16 @@ void ScalarConverter::convert(const std::string& input) {
     // Handle numeric literals
     else if (isInt(input) || isFloat(input) || isDouble(input)) {
         try {
-            if (isFloat(input)) {
-                std::string withoutF = input.substr(0, input.length() - 1);
-                value = std::stod(withoutF);
-            } else {
-                value = std::stod(input);
-            }
-        } catch (const std::exception& e) {
+                if (isFloat(input)) {
+                    std::string withoutF = input.substr(0, input.length() - 1);
+                    value = std::stod(withoutF);
+                } else {
+                    value = std::stod(input);
+                }
+            } catch (const std::exception& e) {
             std::cout << "Error: invalid conversion" << std::endl;
             return;
-        }
+            }
     }
     else {
         std::cout << "Error: invalid input format" << std::endl;
