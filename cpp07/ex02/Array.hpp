@@ -27,7 +27,6 @@ public:
     }
     Array& operator=(const Array& other) {
         if (this != &other) {
-            // Delete current array
             delete[] _array;
             
             _size = other._size;
@@ -47,7 +46,6 @@ public:
         delete[] _array;
     }
     
-    // Subscript operator with bounds checking
     T& operator[](unsigned int index) {
         if (index >= _size) {
             throw std::exception();
