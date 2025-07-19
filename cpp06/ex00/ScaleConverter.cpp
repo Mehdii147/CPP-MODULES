@@ -36,7 +36,8 @@ static bool isInt(const std::string& input)
         return false;
     
     for (size_t i = start; i < input.length(); i++) {
-        if (!std::isdigit(input[i])) return false;
+        if (!std::isdigit(input[i]))
+            return false;
     }
     return true;
 }
