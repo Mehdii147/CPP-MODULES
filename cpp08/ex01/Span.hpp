@@ -20,11 +20,10 @@ class Span {
 		~Span();
 
 		void addNumber(int value);
-		int shortestSpan() const;
+		unsigned int shortestSpan() const;
 		int longestSpan() const;
+		void addNumbersRange(std::vector<int>::iterator start, std::vector<int>::iterator end);
 };
-
-
 
 
 #endif

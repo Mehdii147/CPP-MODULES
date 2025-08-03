@@ -29,7 +29,7 @@ void Span::addNumber(int value)
 	_numbers.push_back(value);
 }
 
-int Span::shortestSpan() const
+unsigned int Span::shortestSpan() const
 {
 	if (_numbers.size() < 2) {
 		throw std::logic_error("Not enough numbers to find a span");
@@ -38,9 +38,9 @@ int Span::shortestSpan() const
 	std::vector<int> sortedNumbers = _numbers;
 	std::sort(sortedNumbers.begin(), sortedNumbers.end());
 
-	int minSpan = std::numeric_limits<int>::max();
+	unsigned int minSpan = std::numeric_limits<unsigned int>::max();
 	for (size_t i = 1; i < sortedNumbers.size(); ++i) {
-		int span = sortedNumbers[i] - sortedNumbers[i - 1];
+		unsigned int span = sortedNumbers[i] - sortedNumbers[i - 1];
 		if (span < minSpan) {
 			minSpan = span;
 		}
@@ -57,3 +57,16 @@ int Span::longestSpan() const
     int maxVal = *std::max_element(_numbers.begin(), _numbers.end());
     return maxVal - minVal;
 }
+
+void Span::addNumbersRange(std::vector<int>::iterator start, std::vector<int>::iterator end)
+{
+    unsigned int numToAdd = std::distance(start, end);
+    if (_numbers.size() + numToAdd > _maxSize) {
+        throw std::length_error("Not enough space in Span to add all numbers");
+    }
+
+    for (std::vector<int>::iterator it = start; it != end; ++it) {
+        _numbers.push_back(*it);
+    }
+}
+
