@@ -11,8 +11,8 @@ int main()
     sp.addNumber(11);
     
     std::vector<int> moreNumbers;
-    moreNumbers.push_back(18);
-    moreNumbers.push_back(12);
+    moreNumbers.push_back(2147483647);
+    moreNumbers.push_back(2147483648);
     moreNumbers.push_back(2);
     moreNumbers.push_back(5);
     moreNumbers.push_back(7);

@@ -60,7 +60,7 @@ int Span::longestSpan() const
 
 void Span::addNumbersRange(std::vector<int>::iterator start, std::vector<int>::iterator end)
 {
-    unsigned int numToAdd = std::distance(start, end);
+    int numToAdd = std::distance(start, end);
     if (_numbers.size() + numToAdd > _maxSize) {
         throw std::length_error("Not enough space in Span to add all numbers");
     }
