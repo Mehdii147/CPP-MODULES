@@ -48,25 +48,13 @@ unsigned int Span::shortestSpan() const
 	return minSpan;
 }
 
-int Span::longestSpan() const
+unsigned int Span::longestSpan() const
 {
     if (_numbers.size() < 2)
         throw std::runtime_error("Not enough elements");
 
-    int minVal = *std::min_element(_numbers.begin(), _numbers.end());
-    int maxVal = *std::max_element(_numbers.begin(), _numbers.end());
+    unsigned int minVal = *std::min_element(_numbers.begin(), _numbers.end());
+    unsigned int maxVal = *std::max_element(_numbers.begin(), _numbers.end());
     return maxVal - minVal;
-}
-
-void Span::addNumbersRange(std::vector<int>::iterator start, std::vector<int>::iterator end)
-{
-    int numToAdd = std::distance(start, end);
-    if (_numbers.size() + numToAdd > _maxSize) {
-        throw std::length_error("Not enough space in Span to add all numbers");
-    }
-
-    for (std::vector<int>::iterator it = start; it != end; ++it) {
-        _numbers.push_back(*it);
-    }
 }
 
