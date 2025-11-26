@@ -29,7 +29,7 @@ void Span::addNumber(int value)
 	_numbers.push_back(value);
 }
 
-int Span::shortestSpan() const
+unsigned int Span::shortestSpan() const
 {
 	if (_numbers.size() < 2) {
 		throw std::logic_error("Not enough numbers to find a span");
@@ -38,9 +38,9 @@ int Span::shortestSpan() const
 	std::vector<int> sortedNumbers = _numbers;
 	std::sort(sortedNumbers.begin(), sortedNumbers.end());
 
-	int minSpan = std::numeric_limits<int>::max();
+	unsigned int minSpan = std::numeric_limits<unsigned int>::max();
 	for (size_t i = 1; i < sortedNumbers.size(); ++i) {
-		int span = sortedNumbers[i] - sortedNumbers[i - 1];
+		unsigned int span = sortedNumbers[i] - sortedNumbers[i - 1];
 		if (span < minSpan) {
 			minSpan = span;
 		}
@@ -48,12 +48,13 @@ int Span::shortestSpan() const
 	return minSpan;
 }
 
-int Span::longestSpan() const
+unsigned int Span::longestSpan() const
 {
     if (_numbers.size() < 2)
         throw std::runtime_error("Not enough elements");
 
-    int minVal = *std::min_element(_numbers.begin(), _numbers.end());
-    int maxVal = *std::max_element(_numbers.begin(), _numbers.end());
+    unsigned int minVal = *std::min_element(_numbers.begin(), _numbers.end());
+    unsigned int maxVal = *std::max_element(_numbers.begin(), _numbers.end());
     return maxVal - minVal;
 }
+

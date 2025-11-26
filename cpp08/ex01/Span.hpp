@@ -20,11 +20,20 @@ class Span {
 		~Span();
 
 		void addNumber(int value);
-		int shortestSpan() const;
-		int longestSpan() const;
+		unsigned int shortestSpan() const;
+		unsigned int longestSpan() const;
+		    template <typename Iterator>
+		void addNumbersRange(Iterator start, Iterator end)
+		{
+			size_t numToAdd = std::distance(start, end);
+			if (_numbers.size() + numToAdd > _maxSize) {
+				throw std::length_error("Not enough space in Span to add all numbers");
+			}
+
+			for (Iterator it = start; it != end; ++it) {
+				_numbers.push_back(*it);
+			}
+		}
 };
-
-
-
 
 #endif
